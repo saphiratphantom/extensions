@@ -54,7 +54,7 @@ export default new class Tosho extends AbstractSource {
     const query = this.buildQuery({ resolution, exclusions })
     const res = await fetch(this.url + '?order=size-d&aid=' + anidbAid + query)
 
-    const data = /** @type {import('./types').Tosho[]} */(await res.json()).filter(entry => entry.num_files >= 1)
+    const data = /** @type {import('./types').Tosho[]} */(await res.json()).filter(entry => entry.num_files > 1)
 
     if (data.length) return this.map(data, true)
     return []

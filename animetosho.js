@@ -49,13 +49,12 @@ export default new class Tosho extends AbstractSource {
   }
 
   /** @type {import('./').SearchFunction} */
-  async batch ({ anidbAid, resolution, episodeCount, exclusions }) {
+  async batch ({ anidbAid, resolution, exclusions }) {
     if (!anidbAid) throw new Error('No anidbAid provided')
-    if (episodeCount == null) throw new Error('No episodeCount provided')
     const query = this.buildQuery({ resolution, exclusions })
     const res = await fetch(this.url + '?order=size-d&aid=' + anidbAid + query)
 
-    const data = /** @type {import('./types').Tosho[]} */(await res.json()).filter(entry => entry.num_files >= episodeCount)
+    const data = /** @type {import('./types').Tosho[]} */(await res.json()).filter(entry => entry.num_files >= 1)
 
     if (data.length) return this.map(data, true)
     return []

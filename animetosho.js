@@ -6,6 +6,7 @@ export default new class Tosho extends AbstractSource {
   url = atob('aHR0cHM6Ly9mZWVkLmFuaW1ldG9zaG8ub3JnL2pzb24=')
 
   buildQuery ({ resolution, exclusions }) {
+    if (!exclusions?.length && !resolution) return ''
     const base = `&qx=1&q=!("${exclusions.join('"|"')}")`
     if (!resolution) return base
 

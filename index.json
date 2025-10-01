@@ -44,4 +44,17 @@
     "update": "gh:hayase-app/extensions",
     "code": "gh:hayase-app/extensions/animetosho-nzb"
   }
+    {
+    "name": "Nyaa",
+    "id": "nyaa",
+    "version": "0.0.1",
+    "type": "torrent",
+    "accuracy": "high",
+    "ratio": 0,
+    "media": "sub",
+    "languages": ["US"],
+    "icon": "https://nyaa.si/static/favicon.png",
+    "update": "gh:saphiratphantom/extensions",
+    "code": "gh:saphiratphantom/extensions/nyaa"
+  }
 ]
